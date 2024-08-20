@@ -14,7 +14,7 @@
     </style>
 </head>
 <body>
-    <canvas id="mycanvas" width="600" height="500"></canvas>
+    <canvas id="mycanvas" width="600" height="600"></canvas>
 
     <script>
         const mycanvas = document.getElementById("mycanvas");
@@ -53,6 +53,63 @@
         ctx.lineTo(400, 150);
         ctx.closePath();
         ctx.stroke();
+
+        // Arcos
+       
+
+        ctx.beginPath();
+        ctx.arc(200, 375, 80, 0.9, 0.7 * Math.PI);
+        ctx.stroke(); // Dibuja el arco
+        ctx.fill();
+
+        // Círculo con relleno
+        ctx.beginPath();
+        ctx.arc(300, 400, 80, 0, 2 * Math.PI); // Dibuja un círculo completo
+        ctx.fillStyle = 'rgba(0, 128, 0, 0.5)'; // Color de relleno verde semitransparente
+        ctx.fill(); // Rellenar el círculo
+        ctx.stroke(); // Dibujar el borde del círculo
+
+
+        // Círculo sin relleno (solo borde)
+        ctx.beginPath();
+        ctx.arc(200, 400, 80, 0, 2 * Math.PI); // Dibuja un círculo completo
+        ctx.strokeStyle = 'black'; // Color del borde
+        ctx.stroke(); // Dibujar el borde del círculo
+
+     
+
+        // Crear gradiente
+        const gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
+        gradient.addColorStop("0", "magenta");
+        gradient.addColorStop("0.5", "blue");
+        gradient.addColorStop("1.0", "red");
+
+        // Rellenar texto con gradiente
+        ctx.fillStyle = gradient;
+        ctx.fillText("Good to see u driver!", 100, 100);
+
+        // Imagen
+        var img = new Image();
+        img.src = "grid-lines.png";
+        img.onload = function() {
+        ctx.drawImage(img, 50, 50);
+        };
+
+        // Gradiente
+        const my_gradient = ctx.createLinearGradient(30, 30, 0, 170);
+        my_gradient.addColorStop(0, "black");
+        my_gradient.addColorStop(1, "white");
+
+        // Rellenar rectángulo con gradiente
+        ctx.fillStyle = my_gradient;
+        ctx.fillRect(380, 200, 150, 100);
+
+
+
+
     </script>
+
+
+
 </body>
 </html>
