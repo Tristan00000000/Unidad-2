@@ -76,37 +76,6 @@
         ctx.strokeStyle = 'black'; // Color del borde
         ctx.stroke(); // Dibujar el borde del círculo
 
-     
-
-        // Crear gradiente
-        const gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
-        gradient.addColorStop("0", "magenta");
-        gradient.addColorStop("0.5", "blue");
-        gradient.addColorStop("1.0", "red");
-
-        // Rellenar texto con gradiente
-        ctx.fillStyle = gradient;
-        ctx.fillText("Good to see u driver!", 100, 100);
-
-        // Imagen
-        var img = new Image();
-        img.src = "grid-lines.png";
-        img.onload = function() {
-        ctx.drawImage(img, 50, 50);
-        };
-
-        // Gradiente
-        const my_gradient = ctx.createLinearGradient(30, 30, 0, 170);
-        my_gradient.addColorStop(0, "black");
-        my_gradient.addColorStop(1, "white");
-
-        // Rellenar rectángulo con gradiente
-        ctx.fillStyle = my_gradient;
-        ctx.fillRect(380, 200, 150, 100);
-
-
-
-
     </script>
 
 
