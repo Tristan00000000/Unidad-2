@@ -20,6 +20,18 @@
         const mycanvas = document.getElementById("mycanvas");
         const ctx = mycanvas.getContext("2d");
 
+        document.getElementById("mycanvas").addEventListener("mousedown", function(e)
+        {
+             // Círculo con relleno
+        ctx.fillStyle = 'rgba(0, 128, 0, 0.5)'; // Color de relleno verde semitransparente
+        ctx.beginPath();
+        ctx.arc(e.x, e.y, 80, 0, 2 * Math.PI); // Dibuja un círculo completo
+        ctx.fill(); // Rellenar el círculo
+        ctx.stroke(); // Dibujar el borde del círculo
+        }
+    
+        )
+        /*
         // Dibujar rectángulos sólidos de colores
         ctx.fillStyle = "blue";
         ctx.fillRect(20, 20, 100, 100);
@@ -100,6 +112,14 @@
         // Dibujar un rectángulo relleno con el gradiente
         ctx.fillStyle = grd;
         ctx.fillRect(300, 450, 150, 100);
+
+        addEventListener("mousedown", (event) => {});
+
+        onmousedown = (event) => {};
+        */
+
+          // Círculo con relleno
+       
 
     </script>
 
