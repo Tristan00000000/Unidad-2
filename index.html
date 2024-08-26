@@ -19,18 +19,40 @@
     <script>
         const mycanvas = document.getElementById("mycanvas");
         const ctx = mycanvas.getContext("2d");
+        let drawCircle = true; // Variable que controla la figura a dibujar
 
-        document.getElementById("mycanvas").addEventListener("mousedown", function(e)
-        {
-             // Círculo con relleno
-        ctx.fillStyle = 'rgba(0, 128, 0, 0.5)'; // Color de relleno verde semitransparente
-        ctx.beginPath();
-        ctx.arc(e.x, e.y, 80, 0, 2 * Math.PI); // Dibuja un círculo completo
-        ctx.fill(); // Rellenar el círculo
-        ctx.stroke(); // Dibujar el borde del círculo
-        }
-    
-        )
+        // Dibujar círculo en mousedown
+        mycanvas.addEventListener("mousedown", function(e) {
+            ctx.fillStyle = 'rgba(0, 128, 0, 0.5)'; // Color de relleno verde semitransparente
+            ctx.beginPath();
+            ctx.arc(e.offsetX, e.offsetY, 80, 0, 2 * Math.PI); // Dibuja un círculo completo
+            ctx.fill(); // Rellenar el círculo
+            ctx.stroke(); // Dibujar el borde del círculo
+        });
+
+        // Dibujar estela en mousemove
+        mycanvas.addEventListener("mousemove", function(e) {
+            ctx.fillStyle = 'rgba(0, 0, 255, 0.5)'; // Color de relleno azul semitransparente
+
+            if (drawCircle) {
+                ctx.beginPath();
+                ctx.arc(e.offsetX, e.offsetY, 5, 0, 2 * Math.PI); // Dibuja un pequeño círculo
+                ctx.fill(); // Rellenar el círculo
+            } else {
+                ctx.fillRect(e.offsetX - 2.5, e.offsetY - 2.5, 5, 5); // Dibuja un pequeño cuadrado
+            }
+        });
+
+        // Cambiar a cuadrado cuando el puntero salga del canvas
+        mycanvas.addEventListener("mouseout", function() {
+            drawCircle = false;
+        });
+
+        // Cambiar a círculo cuando el puntero entre en el canvas
+        mycanvas.addEventListener("mouseover", function() {
+            drawCircle = true;
+        });
+
         /*
         // Dibujar rectángulos sólidos de colores
         ctx.fillStyle = "blue";
@@ -67,7 +89,6 @@
         ctx.stroke();
 
         // Arcos
-       
 
         ctx.beginPath();
         ctx.arc(200, 375, 80, 0.9, 0.7 * Math.PI);
@@ -117,13 +138,6 @@
 
         onmousedown = (event) => {};
         */
-
-          // Círculo con relleno
-       
-
     </script>
-
-
-
 </body>
 </html>
